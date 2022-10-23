@@ -31,6 +31,10 @@ class Dice_page extends StatefulWidget {
 }
   int leftDiceNumb =1;
  int RightDiceNumb =6;
+ void ChangedDice(){
+            RightDiceNumb=Random().nextInt(6)+1;
+           leftDiceNumb=Random().nextInt(6)+1;
+ }
 class _Dice_pageState extends State<Dice_page> {
 
   @override
@@ -41,7 +45,7 @@ class _Dice_pageState extends State<Dice_page> {
         children: [ 
           Expanded(child:TextButton (onPressed: () { 
             setState(() {
-           leftDiceNumb=Random().nextInt(6)+1;
+              ChangedDice();
           }); },
           child: Image(image: AssetImage('images/$leftDiceNumb.png'))
           )
@@ -49,7 +53,7 @@ class _Dice_pageState extends State<Dice_page> {
           
           Expanded(child: TextButton(onPressed: () {
             setState(() {
-            RightDiceNumb=Random().nextInt(6)+1;
+          ChangedDice();
           });  },
           child: Image(image: AssetImage('images/$RightDiceNumb.png'))
           )
